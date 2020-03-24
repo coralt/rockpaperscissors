@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>This is a test page</title>
+        <style></style>
+    </head>
+    <body>
+        <h1>Function library test</h1>
+
+        <h4>Test my add 7 function</h4>
+        <input class="numberInput1" type="text" display="block">
+        <p class="add7"></p>
+
+        <h4>Test my multiply function</h4>
+        <input class="numberInput2" type="text" display ="block">
+        <p class="multiply"></p>
+
+        <h4>Test my capitalize function</h4>
+        <input class="stringInput" type="text" display="block">
+        <p class="capitalize"></p>
+
+        <h4>Test my last letter function</h4>
+        <input class="secondString" type="text" display="block">
+        <p class="lastLetter"></p>
+
+        <script>
+            const input1 = document.querySelector(".numberInput1");
+            const input2 = document.querySelector(".numberInput2");
+            const input3 = document.querySelector(".stringInput");
+            const input4 = document.querySelector(".secondString");
+
+
+            const textOutput1 = document.querySelector(".add7");
+            const textOutput2 = document.querySelector(".multiply");
+            const textOutput3 = document.querySelector(".capitalize");
+            const textOutput4 = document.querySelector(".lastLetter");
+
+            //function add7 - takes one number and returns it + 7
+            function add7(num){
+                return parseInt(num) + 7
+            }
+            //function multiply - returns the product of two numbers
+            function multiply(num, num2){
+                return parseInt(num)* parseInt(num2)
+            }
+            //function capitalize - returns a string with ONLY first letter capitalized
+            function capString(someString){
+                let str = someString[0].toUpperCase()
+                for (n = 1; n < someString.length; n++) {
+                    str = str + someString[n].toLowerCase()
+                }
+                return str
+            }
+            //function lastLetter - returns the very last letter of a string
+            function lastLetter(secString){
+                return secString[secString.length - 1]
+            }
+
+            //call each function when the user enters a value in the input box
+
+            input1.onchange = function(){
+                const num = input1.value;
+                if (isNaN(num || num2)){
+                    textOutput1.textContent = "Please enter a number in the first input box";
+                }
+                else {
+                    textOutput1.textContent = "Your number plus 7 is " + add7(num);
+                    return num
+                }
+            }
+
+            input2.onchange = function (){
+                const num = input1.value;
+                const num2 = input2.value;
+                if(isNaN(num && num2)){
+                    textOutput2.textContent = "Both of your inputs must be numbers"
+                }
+                else {
+                    textOutput2.textContent = "The product of your two numbers is " + multiply(num, num2)
+                }
+            }
+
+            input3.onchange = function (){
+                const someString = input3.value;
+                if (isNaN(someString)){
+                    textOutput3.textContent = capString(someString)
+                }
+                else {
+                    textOutput3.textContent = "Please enter a string value"
+                }
+            }
+
+            input4.onchange = function (){
+                const secondString = input4.value;
+                if (isNaN(secondString)){
+                    textOutput4.textContent = lastLetter(secondString)
+                }
+                else {
+                    textOutput4.textContent = "Please enter a string value"
+                }
+            }
+        </script>
+    </body>
+</html>
