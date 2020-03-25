@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+    <head>
+
+    </head>
+
+    <body>
+        
+        <script>
+            let userScore = 0
+            let compScore = 0
+
+            //computerPlay function that randomly returns rock, paper, or scissors
+            function computerPlay() {
+                let gameArray = ["rock", "paper", "scissors"]
+                return gameArray[Math.floor(Math.random() * (gameArray.length))] //picks a random value from the array
+            }
+
+            
+            //function that accepts two parameters and returns winner
+            function playRound(playerSelection, computerSelection) {
+                playerSelection = playerSelection.toLowerCase();
+                switch (playerSelection){
+                    case "rock":
+                        if (computerSelection === "paper"){
+                            return "You Lose! Paper beats Rock"
+                            compScore = compScore + 1
+                        }
+                        else if (computerSelection === "scissors"){
+                            return "You Win! Rock beats Scissors"
+                            userScore = userScore + 1
+                        }
+                    break;
+                    case "paper":
+                        if (computerSelection === "scissors"){
+                            return "You Lose! Scissors beats Paper"
+                            compScore = compScore + 1
+                        }
+                        else if (computerSelection === "rock"){
+                            return "You Win! Paper beats Rock"
+                            userScore = userScore + 1
+                        }
+                    break;
+                    case "scissors":
+                        if (computerSelection === "rock"){
+                            return "You Lose! Rock beats Scissors"
+                            compScore = compScore + 1
+                        }
+                        else if (computerSelection === "paper"){
+                            return "You Win! Scissors beats Paper"
+                            userScore = userScore + 1
+                        }
+                    break;
+                    default:
+                        return "Please choose from rock, paper, or scissors"
+                }
+            }
+
+            //game function: play five rounds to determine the winner
+            function game() {}
+            //for (n = 5; n > 0; n--){
+                let userInput = window.prompt("Please choose to play rock, paper, or scissors")
+                console.log(playRound(userInput, computerPlay()))
+                console.log("Computer's score: " + compScore)
+                console.log("Your score: " + userScore)
+            //}
+
+        </script>
+
+    </body>
+
+</html>
