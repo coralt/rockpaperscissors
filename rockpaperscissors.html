@@ -7,15 +7,14 @@
     <body>
         
         <script>
-            let userScore = 0
-            let compScore = 0
+            let userScore = 0;
+            let compScore = 0;
 
             //computerPlay function that randomly returns rock, paper, or scissors
             function computerPlay() {
                 let gameArray = ["rock", "paper", "scissors"]
                 return gameArray[Math.floor(Math.random() * (gameArray.length))] //picks a random value from the array
             }
-
             
             //function that accepts two parameters and returns winner
             function playRound(playerSelection, computerSelection) {
@@ -23,32 +22,32 @@
                 switch (playerSelection){
                     case "rock":
                         if (computerSelection === "paper"){
-                            return "You Lose! Paper beats Rock"
                             compScore = compScore + 1
+                            return "You Lose! Paper beats Rock"
                         }
                         else if (computerSelection === "scissors"){
-                            return "You Win! Rock beats Scissors"
                             userScore = userScore + 1
+                            return "You Win! Rock beats Scissors"
                         }
                     break;
                     case "paper":
                         if (computerSelection === "scissors"){
-                            return "You Lose! Scissors beats Paper"
                             compScore = compScore + 1
+                            return "You Lose! Scissors beats Paper"
                         }
                         else if (computerSelection === "rock"){
-                            return "You Win! Paper beats Rock"
                             userScore = userScore + 1
+                            return "You Win! Paper beats Rock"
                         }
                     break;
                     case "scissors":
                         if (computerSelection === "rock"){
-                            return "You Lose! Rock beats Scissors"
                             compScore = compScore + 1
+                            return "You Lose! Rock beats Scissors"
                         }
                         else if (computerSelection === "paper"){
-                            return "You Win! Scissors beats Paper"
                             userScore = userScore + 1
+                            return "You Win! Scissors beats Paper"
                         }
                     break;
                     default:
@@ -57,13 +56,24 @@
             }
 
             //game function: play five rounds to determine the winner
-            function game() {}
-            //for (n = 5; n > 0; n--){
-                let userInput = window.prompt("Please choose to play rock, paper, or scissors")
-                console.log(playRound(userInput, computerPlay()))
+            function game() {
+                for (n = 5; n > 0; n--){
+                    let userInput = window.prompt("Please choose to play rock, paper, or scissors")
+                    console.log(playRound(userInput, computerPlay()))
+                }
+
                 console.log("Computer's score: " + compScore)
                 console.log("Your score: " + userScore)
-            //}
+                if (userScore > compScore){
+                    console.log("Congratulations! You won!")
+                }
+                else if (userScore < compScore) {
+                    console.log("You didn't win this time. Try again!")
+                }
+                else {
+                    console.log("It is a tie! That rarely happens!")
+                }
+            }
 
         </script>
 
